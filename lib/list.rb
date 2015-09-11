@@ -33,4 +33,25 @@ class List
     Task.create(:task => todo)
   end
 
+  # def edit_or_delete_todo
+  #   print "(E)dit or (D)elete ToDo > "
+  #   edit_or_delete = gets.chomp.downcase
+
+  #   case edit_or_delete
+  #   when 'e'
+
+  #   when 'd'
+  #     print "Which ToDo would you like to delete > "
+  #     Todo = gets.chomp.to_i
+
+  #     task.destroy
+
+
+
+
+
+
+
+
+
 end
