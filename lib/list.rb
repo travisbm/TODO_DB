@@ -1,3 +1,5 @@
+
+
 class List
 
   def print_options
@@ -10,18 +12,25 @@ class List
         exit
       end
 
-      # case option.to_i
-      # when 1
-      #   add_todo
+      case option.to_i
+      when 1
+        add_todo
       # when 2
       #   mark_complete
       # when 3
       #   edit_or_delete_todo
-      # else
-      #   puts "Invalid option."
-      # end
+      else
+        puts "Invalid option."
+      end
     end
 
+  end
+
+  def add_todo
+    print "Type ToDo > "
+    todo = gets.chomp
+
+    puts todo
   end
 
 end
