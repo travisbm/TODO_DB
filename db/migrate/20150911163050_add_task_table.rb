@@ -6,4 +6,8 @@ class AddTaskTable < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def change_complete_default
+    change_column_default :tasks, :complete, from: TRUE, to: FALSE
+  end
 end

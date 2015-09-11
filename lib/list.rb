@@ -1,4 +1,4 @@
-
+require_relative '../lib/task'
 
 class List
 
@@ -30,7 +30,7 @@ class List
     print "Type ToDo > "
     todo = gets.chomp
 
-    puts todo
+    Task.create(:task => todo)
   end
 
 end
