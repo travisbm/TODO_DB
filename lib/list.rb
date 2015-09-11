@@ -5,6 +5,12 @@ class List
   def print_options
     loop do
 
+      puts "ID ---------- Task ---------- Completed"
+
+      Task.all.each do |n|
+      puts "#{n.id}          #{n.task}            #{n.complete}"
+      end
+
       print "Pick 1) Add To Do 2) Mark To Do Complete 3) Edit or Delete ToDo (q)uit > "
       option = gets.chomp
 
