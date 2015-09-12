@@ -5,10 +5,11 @@ class List
   def print_options
     loop do
 
-      puts "ID ---------- Task ---------- Completed"
+      puts " ID ---------- Task ---------- Completed"
 
       Task.all.each do |n|
-      puts "#{n.id}          #{n.task}            #{n.complete}"
+      row = "%2s" % "#{n.id}" + "          #{n.task}" + "%20s" % "#{n.complete}"
+      puts row
       end
 
       print "Pick 1) Add To Do 2) Mark To Do Complete 3) Edit or Delete ToDo (q)uit > "
@@ -21,8 +22,8 @@ class List
       case option.to_i
       when 1
         add_todo
-      # when 2
-      #   mark_complete
+      when 2
+        mark_complete
       when 3
         edit_or_delete_todo
       else
@@ -39,13 +40,25 @@ class List
     Task.create(:task => todo)
   end
 
+  def mark_complete
+    print "Which ToDo would you like to mark complete > "
+    todo = gets.chomp.to_i
+
+    Task.find(todo).update_attribute(:complete, true)
+  end
+
   def edit_or_delete_todo
     print "(E)dit or (D)elete ToDo > "
     edit_or_delete = gets.chomp.downcase
 
     case edit_or_delete
-    when 'e'
 
+    when 'e'
+      print "Which ToDo would you like to edit > "
+      todo = gets.chomp.to_i
+
+      print "Enter new task > "
+      Task.find(todo).update_attribute(:task, gets.chomp)
     when 'd'
       print "Which ToDo would you like to delete > "
       todo = gets.chomp.to_i
