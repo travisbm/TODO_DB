@@ -23,8 +23,8 @@ class List
         add_todo
       # when 2
       #   mark_complete
-      # when 3
-      #   edit_or_delete_todo
+      when 3
+        edit_or_delete_todo
       else
         puts "Invalid option."
       end
@@ -39,18 +39,22 @@ class List
     Task.create(:task => todo)
   end
 
-  # def edit_or_delete_todo
-  #   print "(E)dit or (D)elete ToDo > "
-  #   edit_or_delete = gets.chomp.downcase
+  def edit_or_delete_todo
+    print "(E)dit or (D)elete ToDo > "
+    edit_or_delete = gets.chomp.downcase
 
-  #   case edit_or_delete
-  #   when 'e'
+    case edit_or_delete
+    when 'e'
 
-  #   when 'd'
-  #     print "Which ToDo would you like to delete > "
-  #     Todo = gets.chomp.to_i
+    when 'd'
+      print "Which ToDo would you like to delete > "
+      todo = gets.chomp.to_i
 
-  #     task.destroy
+      Task.destroy(todo)
+    else
+      puts "Invalid input."
+    end
+  end
 
 
 
